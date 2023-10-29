@@ -5,13 +5,13 @@ Get a general overview of React.js;
 ## Main task:
 
 * Create a product list page
- - Products should be fetched using the endpoint https://run.mocky.io/v3/b54fe93f-f5a1-426b-a76c-e43d246901fd
- - The page should have a search input that filters products without page refresh
- - Search should be performed once the user stops writing
- - Each product should display: name, price and category
- - Clicking on a product should redirect to product details page
+  - Products should be fetched using the endpoint https://run.mocky.io/v3/b54fe93f-f5a1-426b-a76c-e43d246901fd
+  - The page should have a search input that filters products without page refresh
+  - Search should be performed once the user stops writing
+  - Each product should display: name, price and category
+  - Clicking on a product should redirect to product details page
 * Product details page
- - It should display product: name, price, category and description
+  - It should display product: name, price, category and description
 
 ## Requirements:
 
