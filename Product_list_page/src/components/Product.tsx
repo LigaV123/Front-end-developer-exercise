@@ -7,7 +7,7 @@ type ProductProps = {
 
 const flexCenter = "flex justify-center justify-items-center";
 const border = "border-solid border-2 border-red-950 rounded-xl";
-const hoverPower = "hover:h-48 hover:bg-orange-300/50";
+const hoverPower = "hover:bg-orange-300/90 hover:border-4";
    
 const Product = ({ name, price, currency, category} : ProductProps) => (
     <div className={`${flexCenter} flex-col gap-y-3 w-56 h-56 bg-orange-300/75 ${border} ${hoverPower}`}>

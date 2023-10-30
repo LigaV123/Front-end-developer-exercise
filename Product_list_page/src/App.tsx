@@ -45,7 +45,9 @@ function App() {
     <>
       <Header/>
 
-      <div className="flex justify-center justify-items-center p-6">
+      <div className='bg-image-url bg-cover h-fit'>
+
+      <div className="flex justify-center justify-items-center p-6 pt-9">
         <input 
           type='text' 
           placeholder='Search by name/category'
@@ -59,7 +61,7 @@ function App() {
         <Routes>
           <Route path="/product/:id"
             element={
-              <div className="flex justify-center gap-3 p-6">
+              <div className="flex justify-center gap-3 p-6 pb-10 mt-6">
                 <ProductDetail products={products}/>
               </div>
             }
@@ -68,7 +70,7 @@ function App() {
           <Route 
             path='/'
             element={
-              <div className="flex justify-center flex-wrap gap-3 p-6">
+              <div className="flex justify-center flex-wrap gap-3 p-6 pb-12 mt-6">
                 {searchedProducts.length > 0
                   ? searchedProducts.map(({ id, name, price, currency, category }) => (
                       <Link to={`/product/${id}`} key={id}>
@@ -86,6 +88,7 @@ function App() {
           />
         </Routes>
       </Router>
+      </div>
     </>
   )
 }

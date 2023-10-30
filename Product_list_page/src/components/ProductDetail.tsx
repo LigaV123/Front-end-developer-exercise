@@ -22,7 +22,7 @@ const ProductDetail = ({ products }: { products: Product[] }) => {
     const border = "border-solid border-2 border-red-950 rounded-xl";
 
     return (
-        <div className={`${flexCenter} flex-col gap-y-3 w-80 h-96 p-6 bg-orange-300/75 ${border}`}>
+        <div className={`${flexCenter} flex-col gap-y-3 w-80 h-96 p-6 bg-orange-300/90 ${border}`}>
             <h3 className={`${flexCenter} text-4xl font-semibold text-orange-950`}>{name}</h3>
             <div className={`${flexCenter} ${border}`}></div>
             <h4 className={`${flexCenter} mt-6 text-2xl`}>{currency} {price}</h4>
