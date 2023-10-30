@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import debounce from 'lodash.debounce'
+import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom'
 import Product from './components/Product'
-import ProductDetails from './components/ProductDetails'
+import ProductDetail from './components/ProductDetail'
 import './App.css'
 
 type Product = {
   id: number,
   name: string,
   price: number,
-  category: string
+  category: string,
+  description: string;
 };
 
 function App() {
@@ -40,37 +42,46 @@ function App() {
 
   return (
     <>
+    <div className="app">
       <div className="search">
         <input 
-        type='text' 
-        placeholder='Search by name/category'
-        className="search__input"
-        value={inputValue}
-        onChange={handleInputChange}
-        required
+          type='text' 
+          placeholder='Search by name/category'
+          className="search__input"
+          value={inputValue}
+          onChange={handleInputChange}
+          required
         />
       </div>
+    </div>
 
-      <div className="products">
-        {searchedProducts.length > 0 
-          ? searchedProducts.map(({ id, name, price, category }) => (
-              <Product
-                key={id}
-                name={name}
-                price={price}
-                category={category}
-              />
-            ))
-          : products.map(({ id, name, price, category }) => (
-              <Product
-                key={id}
-                name={name}
-                price={price}
-                category={category}
-              />
-            ))
-        }
-      </div>
+    <Router>
+      <Routes>
+        <Route path="/product/:id"
+          element={<ProductDetail products={products}/>}
+        />
+
+        <Route 
+          path='/'
+          element={
+            <div className="products">
+              {searchedProducts.length > 0
+                ? searchedProducts.map(({ id, name, price, category }) => (
+                    <Link to={`/product/${id}`} key={id}>
+                      <Product name={name} price={price} category={category} />
+                    </Link>
+                  ))
+                : products.map(({ id, name, price, category }) => (
+                    <Link to={`/product/${id}`} key={id}>
+                      <Product name={name} price={price} category={category} />
+                    </Link>
+                  ))
+              }
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
     </>
   )
 }

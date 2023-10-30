@@ -1,4 +1,4 @@
-
+import './Product.css'
 
 type ProductProps = {
     name: string,
