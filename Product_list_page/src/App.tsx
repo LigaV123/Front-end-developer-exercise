@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import debounce from 'lodash.debounce'
-import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import Product from './components/Product'
 import ProductDetail from './components/ProductDetail'
-import './App.css'
+import Header from './components/Header'
 
 type Product = {
   id: number,
   name: string,
   price: number,
+  currency: string,
   category: string,
   description: string;
 };
@@ -42,46 +43,49 @@ function App() {
 
   return (
     <>
-    <div className="app">
-      <div className="search">
+      <Header/>
+
+      <div className="flex justify-center justify-items-center p-6">
         <input 
           type='text' 
           placeholder='Search by name/category'
-          className="search__input"
+          className="border-2 border-red-950 rounded-md	p-1"
           value={inputValue}
           onChange={handleInputChange}
-          required
         />
       </div>
-    </div>
+    
+      <Router>
+        <Routes>
+          <Route path="/product/:id"
+            element={
+              <div className="flex justify-center gap-3 p-6">
+                <ProductDetail products={products}/>
+              </div>
+            }
+          />
 
-    <Router>
-      <Routes>
-        <Route path="/product/:id"
-          element={<ProductDetail products={products}/>}
-        />
-
-        <Route 
-          path='/'
-          element={
-            <div className="products">
-              {searchedProducts.length > 0
-                ? searchedProducts.map(({ id, name, price, category }) => (
-                    <Link to={`/product/${id}`} key={id}>
-                      <Product name={name} price={price} category={category} />
-                    </Link>
-                  ))
-                : products.map(({ id, name, price, category }) => (
-                    <Link to={`/product/${id}`} key={id}>
-                      <Product name={name} price={price} category={category} />
-                    </Link>
-                  ))
-              }
-            </div>
-          }
-        />
-      </Routes>
-    </Router>
+          <Route 
+            path='/'
+            element={
+              <div className="flex justify-center flex-wrap gap-3 p-6">
+                {searchedProducts.length > 0
+                  ? searchedProducts.map(({ id, name, price, currency, category }) => (
+                      <Link to={`/product/${id}`} key={id}>
+                        <Product name={name} price={price} currency={currency} category={category} />
+                      </Link>
+                    ))
+                  : products.map(({ id, name, price, currency, category }) => (
+                      <Link to={`/product/${id}`} key={id}>
+                        <Product name={name} price={price} currency={currency} category={category} />
+                      </Link>
+                    ))
+                }
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
     </>
   )
 }
