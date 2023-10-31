@@ -1,9 +1,8 @@
-import { render, fireEvent, waitForElement } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
+import App from '../App';
 
-import App from "../App";
-
-describe("<App />", () => {
-  test("should display a blank login form, with remember me checked by default", async () => {
-    // ???
-  });
+test('renders the App component', () => {
+  render(<App />);
+  const inputElement = screen.getByPlaceholderText('Search by name/category');
+  expect(inputElement).toBeInTheDocument();
 });
