@@ -5,15 +5,20 @@ type ProductProps = {
     category: string
 }
 
-const flexCenter = "flex justify-center justify-items-center";
+const flexCenter = "flex justify-center justify-items-center z-30";
 const border = "border-solid border-2 border-red-950 rounded-xl";
-const hoverPower = "hover:bg-orange-300/90 hover:border-4";
+const hoverPower = "hover:bg-orange-300/90 hover:shadow-2xl hover:shadow-gray-700";
+const background = "bg-orange-300/75 transition-colors duration-150";
+const respMd = "md:gap-y-1 md:h-40";
+const respLg = "lg:gap-y-3 lg:h-56";
    
 const Product = ({ name, price, currency, category} : ProductProps) => (
-    <div className={`${flexCenter} flex-col gap-y-3 w-56 h-56 bg-orange-300/75 ${border} ${hoverPower}`}>
-        <h3 className={`${flexCenter} text-3xl font-semibold text-orange-950`}>{name}</h3>
-        <h4 className={`${flexCenter} mt-6 text-xl`}>{currency} {price}</h4>
-        <p className={`${flexCenter} text-lg`}>{category}</p>
+    <div className="flex">
+        <div className={`${flexCenter} flex-col gap-y-0 w-56 h-28 ${background} ${border} ${hoverPower} ${respMd} ${respLg}`}>
+            <h3 className={`${flexCenter} text-2xl md:text-3xl  font-semibold text-orange-950`}>{name}</h3>
+            <h4 className={`${flexCenter} mt-2 md:mt-4 lg:mt-6 text-xl`}>{currency} {price}</h4>
+            <p className={`${flexCenter} text-lg`}>{category}</p>
+        </div>
     </div>
 )
 

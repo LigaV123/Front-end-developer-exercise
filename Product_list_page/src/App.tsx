@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import Product from './components/Product'
 import ProductDetail from './components/ProductDetail'
 import Header from './components/Header'
+import Message from './components/Message'
 
 type Product = {
   id: number,
@@ -45,13 +46,13 @@ function App() {
     <>
       <Header/>
 
-      <div className='bg-image-url bg-cover h-fit'>
+      <div className='bg-image-url fixed top-0 left-0 w-full h-full bg-cover bg-no-repeat bg-center z-0'></div>
 
-      <div className="flex justify-center justify-items-center p-6 pt-9">
+      <div className="flex justify-center justify-items-center p-6 lg:pt-11">
         <input 
           type='text' 
           placeholder='Search by name/category'
-          className="border-2 border-red-950 rounded-md	p-1"
+          className="border-2 border-red-950 rounded-md	p-1 z-10"
           value={inputValue}
           onChange={handleInputChange}
         />
@@ -61,7 +62,7 @@ function App() {
         <Routes>
           <Route path="/product/:id"
             element={
-              <div className="flex justify-center gap-3 p-6 pb-10 mt-6">
+              <div className="flex justify-center gap-5 p-6 pb-6 lg:mt-4">
                 <ProductDetail products={products}/>
               </div>
             }
@@ -70,13 +71,15 @@ function App() {
           <Route 
             path='/'
             element={
-              <div className="flex justify-center flex-wrap gap-3 p-6 pb-12 mt-6">
+              <div className="flex justify-center flex-wrap gap-5 lg:p-6 pb-12 lg:mt-6">
                 {searchedProducts.length > 0
                   ? searchedProducts.map(({ id, name, price, currency, category }) => (
                       <Link to={`/product/${id}`} key={id}>
                         <Product name={name} price={price} currency={currency} category={category} />
                       </Link>
                     ))
+                  : searchedProducts.length === 0 && inputValue.length > 0
+                  ? <Message/>
                   : products.map(({ id, name, price, currency, category }) => (
                       <Link to={`/product/${id}`} key={id}>
                         <Product name={name} price={price} currency={currency} category={category} />
@@ -88,7 +91,7 @@ function App() {
           />
         </Routes>
       </Router>
-      </div>
+      
     </>
   )
 }
