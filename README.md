@@ -1,16 +1,15 @@
 # Front-end developer
 ## Personal overview
+
 I wrote this project in Typescript and React.js.
-I did not implement the project using Next.js, because I have not used that framework.
 
 I implemented some pagination, probably could have made some more components like product list, so the main app file would look cleaner.
 
-For styling I used the "tailwindcss" library. The main challenge using this library was making all pages with responsive designs, 
+For styling I used the "tailwindcss" library. The main challenge using this library was making all pages with responsive designs,
 I probably could have made some more adjustments to that like smaller header and more compact the rest of the context.
 
-I did not manage to implement unit tests with @testing-library/react, because I have not worked with that library.
-
-With more time I could have made some more adjustments in the overall project, made functional tests and even implemented the project using Next.js.
+I did not manage to implement the project using Next.js and make unit tests with @testing-library/react,
+but with more time to research these libraries I could have made some more adjustments in the overall project.
 
 ## Exercise
 ### The aim:
