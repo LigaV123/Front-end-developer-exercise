@@ -10,7 +10,7 @@ I probably could have made some more adjustments to that like smaller header and
 
 I did not manage to implement unit tests with @testing-library/react, because I have not worked with that library.
 
-With more given time I could have made some more adjustments in the overall project.
+With more time I could have made some more adjustments in the overall project, made functional tests and even implemented the project using Next.js.
 
 ## Exercise
 ### The aim:
