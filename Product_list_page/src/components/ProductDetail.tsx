@@ -9,7 +9,7 @@ type Product = {
     description: string
 };  
 
-const ProductDetail = ({ products }: { products: Product[] }) => {
+const ProductDetail = ({ products } : { products: Product[] }) => {
     const { id } = useParams<{ id: string }>();
     const product = products.find((p) => p.id === Number(id));
 
