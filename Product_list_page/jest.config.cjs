@@ -1,9 +1,9 @@
-export default {
+module.exports = {
   roots: ["<rootDir>/src"],
   
   transform: {
     '^.+\\.[jt]sx?$': 'babel-jest',
-    "^.+\\.tsx?$": "ts-jest"
+   "^.+\\.tsx?$": "ts-jest"
   },
   
   setupFilesAfterEnv: [
@@ -12,5 +12,7 @@ export default {
   
   testRegex: ".*\\.test\\.tsx?$",
   
-  moduleFileExtensions: ["ts", "tsx", "json", "node"]
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+
+  testEnvironment: 'jsdom'
 };

@@ -4,7 +4,7 @@ const respLg = "lg:pt-12 lg:pb-12 lg:text-5xl";
 
 const Message = () => (
     <div className="flex">
-        <p className={`${text} ${space} ${respLg}`}>'Not found'</p>
+        <p className={`${text} ${space} ${respLg}`}>Not found</p>
     </div>
 )
 
